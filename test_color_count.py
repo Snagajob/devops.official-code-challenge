@@ -4,7 +4,7 @@ from typing import Final, List, Tuple
 import pytest
 from pydantic import BaseModel
 
-from main import query_color_count, query_api_version, send_test_data
+from main import query_color_count, query_api_version
 
 API_VERSION: Final[int] = 1
 
@@ -32,12 +32,6 @@ colors: List[Tuple[str, int]] = [
     (ColorNames.yellow, 1),
     (ColorNames.magenta, 0)
 ]
-
-
-def test_send_test_data():
-    """Asserts API accepted test data object for use in additional operations"""
-    send_data_response: bool = send_test_data()
-    assert send_data_response
 
 
 @pytest.mark.parametrize("color,expected_count", colors)
